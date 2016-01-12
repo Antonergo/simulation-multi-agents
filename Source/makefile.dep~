@@ -1,0 +1,3 @@
+Enclos.o: Enclos.cpp Enclos.hpp lapin.hpp
+lapin.o: lapin.cpp lapin.hpp
+main.o: main.cpp Enclos.hpp lapin.hpp

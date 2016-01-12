@@ -1,0 +1,7 @@
+Antity.o: Antity.cpp Antity.hpp SpecialTypes.hpp
+Carre.o: Carre.cpp Carre.hpp SpecialTypes.hpp
+Controler.o: Controler.cpp Controler.hpp Carre.hpp SpecialTypes.hpp
+Farmer.o: Farmer.cpp Farmer.hpp Antity.hpp SpecialTypes.hpp
+Fighter.o: Fighter.cpp Fighter.hpp Antity.hpp SpecialTypes.hpp
+main.o: main.cpp Controler.hpp Carre.hpp SpecialTypes.hpp
+Property.o: Property.cpp Property.hpp
