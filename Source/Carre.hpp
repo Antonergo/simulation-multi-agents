@@ -12,17 +12,36 @@
 class Carre
 {
 	private :
-	//energy cross_cost;
+	//energy cross_cost; //déplacement = perte d'énergie (faim)
 	
-	double quantity_seeded;
-	double quantity_max_seedable;
-	double time_grown;
+	static frame turn_current;
+	
+	energy quantity_seeded;
+	energy quantity_max_seedable;
+	
+	frame turn_planted;
 	
 	public :
 	
-	Carre (double max_seeds) :quantity_seeded(0),  quantity_max_seedable(max_seeds){}
+	Carre () : quantity_seeded(0),quantity_max_seedable(0),turn_planted(0)
+	{}
 	
-	energy getHarvestable();
+	~Carre()
+	{}
+	
+	//getters
+	
+	bool get_is_fertile();
+	bool get_is_planted();
+	
+	//modifications des plantations
+	void fertilize(energy amount);
+	void plant(energy amount); //le simulateur vérifie avant que si c'est déjà planté, on ne fait pas cette méthode
+	
+	energy plunder(energy amount); //le combattant ramasse tout, mais détruit la terre
+	energy harvest(energy amount); //algo de ramassage : E = Qs * (coeff dépedant de la maturité des plantes)
+	
+	// affichage d'infos
 	
 };
 

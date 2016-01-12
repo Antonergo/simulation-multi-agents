@@ -5,6 +5,12 @@
 
 class Farmer : public Antity
 {
+	private :
+	
+	energy skill;
+	
+	public :
+	
 	
 };
 

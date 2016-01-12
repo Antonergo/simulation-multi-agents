@@ -5,7 +5,11 @@
 
 class Fighter : public Antity
 {
+	private :
 	
+	energy strength;
+	
+	public :
 };
 
 

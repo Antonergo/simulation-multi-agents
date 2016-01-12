@@ -1,3 +1,3 @@
 #include "Antity.hpp"
 
-//Antity::AntityCounter = 0;
+id Antity::AntityCounter = 0;

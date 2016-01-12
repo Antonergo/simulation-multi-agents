@@ -2,6 +2,8 @@
 #define __SPECIALTYPES__
 
 typedef unsigned long int id;
+typedef unsigned long int frame;
+typedef unsigned int coord;
 typedef double energy;
 
 typedef enum direction
@@ -23,9 +25,8 @@ typedef enum direction
 
 typedef enum movementkind
 {
-	FOUR_HV,
-	FOUR_DIAG,
-	EIGHT_ALL
+	FOUR = 4,
+	EIGHT = 8
 } movekind;
 
 #endif

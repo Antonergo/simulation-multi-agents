@@ -1,3 +1,8 @@
+# temporary buffers
+*pp~
+*file~
+*ignore~
+
 # Compiled Object files
 *.slo
 *.lo
@@ -26,3 +31,4 @@
 *.exe
 *.out
 *.app
+*exe

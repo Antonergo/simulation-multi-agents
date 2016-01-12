@@ -18,22 +18,32 @@ class Controler
 	private :
 	
 	//matrice de carre
+	coord width;
+	coord height;
 	std::vector 	<Carre> 		grid;
 	
-	//listes des agents
-	std::list 		<Antity*> 		ants;
-	std::list 		<Property*> 	buildings;
+	//vecteur des agents (liste pour les actifs, car on les parcours à la suite)
+	std::list		<Antity*> 		ants; //agents actifs
+	std::vector		<Property*> 	buildings; //agents passifs
 	
 	public :
 	
-	Controler();
+	Controler(coord width = 10, coord height = 10, int n_teams = 2);
 	~Controler();
+	
+	//getters
+	Carre & get_case(coord X, coord Y); 
+	
+	Antity & get_antity(id ID);
+	Antity & get_antity(coord X, coord Y);
+	
 	
 	//list of events :
 	
 	//add Antity
 	//add Property
-	//
+	//play one full turn
+	
 	
 };
 
