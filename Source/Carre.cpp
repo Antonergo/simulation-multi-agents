@@ -4,11 +4,11 @@ frame Carre::turn_current = 0;
 
 //getters
 
-bool Carre::get_is_fertile()
+bool Carre::is_fertile()
 {
 	return (this->quantity_max_seedable > (energy)1.0);
 }
-bool Carre::get_is_planted()
+bool Carre::is_planted()
 {
 	return (this->quantity_seeded > (energy)0.0);
 }

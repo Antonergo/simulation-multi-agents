@@ -1,6 +1,8 @@
 #ifndef __SPECIALTYPES__
 #define __SPECIALTYPES__
 
+#include <cstddef> //NULL
+
 typedef unsigned long int id;
 typedef unsigned long int frame;
 typedef unsigned int coord;

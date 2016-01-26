@@ -2,6 +2,7 @@
 #define __CARRE__
 
 #include "SpecialTypes.hpp"
+#include "Property.hpp"
 
 /**
 
@@ -16,30 +17,44 @@ class Carre
 	
 	static frame turn_current;
 	
+	energy energy_available;
 	energy quantity_seeded;
 	energy quantity_max_seedable;
 	
 	frame turn_planted;
 	
+	Property * building;
+	
 	public :
 	
-	Carre () : quantity_seeded(0),quantity_max_seedable(0),turn_planted(0)
+	Carre () : energy_available(0), quantity_seeded(0),quantity_max_seedable(0),turn_planted(0), building(NULL)
 	{}
 	
 	~Carre()
 	{}
 	
-	//getters
+	//getters simples
 	
-	bool get_is_fertile();
-	bool get_is_planted();
+	
+	
+	//getters complexes
+	
+	bool is_fertile();
+	bool is_planted();
+	
+	//setters de génération
+	void set_property(Property* p)	{building = p;}
 	
 	//modifications des plantations
-	void fertilize(energy amount);
-	void plant(energy amount); //le simulateur vérifie avant que si c'est déjà planté, on ne fait pas cette méthode
+	void fertilize(energy amount); //controler (ajout aleatoire)
+	void plant(energy amount); //fermier (peut pas planter 2 fois)
 	
-	energy plunder(energy amount); //le combattant ramasse tout, mais détruit la terre
-	energy harvest(energy amount); //algo de ramassage : E = Qs * (coeff dépedant de la maturité des plantes)
+	energy plunder(energy amount); //le combattant ramasse, mais ça détruit la fertilité de la terre
+	void cut_plants(energy amount); //le fermier coupe les plantes.
+	
+	//modification du temps (en frames)
+	static void turn_increment() {++turn_current;}
+	
 	
 	// affichage d'infos
 	

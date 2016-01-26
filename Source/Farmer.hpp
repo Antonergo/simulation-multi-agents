@@ -11,7 +11,6 @@ class Farmer : public Antity
 	
 	public :
 	
-	
 };
 
 #endif
