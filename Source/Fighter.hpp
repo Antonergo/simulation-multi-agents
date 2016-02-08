@@ -10,6 +10,9 @@ class Fighter : public Antity
 	energy strength;
 	
 	public :
+	
+	
+	void attack(Antity & victim);
 };
 
 

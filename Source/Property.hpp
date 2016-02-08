@@ -18,10 +18,10 @@ class Property
 	coord X; //coordonnees du point capital
 	coord Y;
 	
-	bool is_destroyed;
+	bool is_destroyed; //permet de dire à ses habitants qu'ils ne doivent plus rentrer chez eux.
 	
 	energy life;
-	energy life_max;
+	energy life_max; //vie du batiment
 	
 	energy reserve; //quantite d'energie en reserve
 	energy generate; //quantite d'energie generee par tour
@@ -49,7 +49,7 @@ class Property
 	
 	//modificateurs
 	
-	void produce();
+	void produce(); //créer de l'énergie, et peut être un nouvel habitant si les conditions le permettent
 	energy pick_reserve(energy skill);
 	energy receive_attack(energy skill);
 	

@@ -5,7 +5,7 @@ int main ()
 {
 	std::srand(std::time(NULL));	
 	//ouvrir un Simulateur
-	Controler game(20 ,8 ,20);
+	Controler game(20 ,8 ,2);
 	
 	//le lancer
 	game.execute();

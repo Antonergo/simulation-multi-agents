@@ -3,6 +3,7 @@
 
 #include "SpecialTypes.hpp"
 #include "Property.hpp"
+#include "Antity.hpp"
 
 /**
 
@@ -24,26 +25,32 @@ class Carre
 	frame turn_planted;
 	
 	Property * building;
+	Antity * antity;
 	
 	public :
 	
-	Carre () : energy_available(0), quantity_seeded(0),quantity_max_seedable(0),turn_planted(0), building(NULL)
+	Carre () : energy_available(0), quantity_seeded(0),quantity_max_seedable(0),turn_planted(0), building(NULL), antity(NULL)
 	{}
 	
 	~Carre()
 	{}
 	
 	//getters simples
-	
-	
+	Antity * get_antity()		 	{return antity;}
+	Property * get_property()	 	{return building;}
+	energy get_max_seedable()	 	{return quantity_max_seedable;}
+	energy get_energy_available()	{return energy_available;}
 	
 	//getters complexes
 	
 	bool is_fertile();
 	bool is_planted();
+	energy get_quantity_harvestable();
 	
 	//setters de génération
+	void set_antity(Antity * a)		{antity = a;}
 	void set_property(Property* p)	{building = p;}
+	
 	
 	//modifications des plantations
 	void fertilize(energy amount); //controler (ajout aleatoire)

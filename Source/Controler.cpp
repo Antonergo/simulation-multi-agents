@@ -43,10 +43,13 @@ Controler::Controler(coord largeur, coord hauteur, int n_teams)
 		//determiner position du batiment sur la grille
 		coord rX = (coord)((((float)std::rand() )/((float)RAND_MAX)) * (float)width);
 		coord rY = (coord)((((float)std::rand() )/((float)RAND_MAX)) * (float)height);
+		coord pos = rY * width + rX;
+		grid[pos].set_property(p);
 		
-		std::cout << i << ": [" << rX << " " << rY << "] (" << bank << " ++ " << prod << ")" << std::endl;
+		std::cout << i << ": [" << rY << " " << rX << " --> " << pos << "] (" << bank << " ++ " << prod << ")" << std::endl;
 		
 	}
+	//place starting antities
 	
 }
 
@@ -68,6 +71,10 @@ Controler::~Controler()
 void Controler::execute()
 {
 	std::cout << "debut de la simulation" << std::endl;
+	
+	std::ostream & os = std::cout;
+	
+	show_all(os);
 }
 
 
@@ -75,9 +82,41 @@ void Controler::show_all(std::ostream & os)
 {
 	for (coord i = 0; i < (coord)grid.size(); ++i)
 	{
-		if(i % width == width-1)
+		coord x = i % width;
+		//coord y = i / width;
+		Carre & carre = grid[i];
+		
+		//ordre de priorité d'affichage : les premiers sont prioritaires
+		if (carre.get_property())
+		{
+			//Batiment
+			os << "B";
+		}
+		else if (carre.get_antity())
+		{
+			//Antity
+			os << "a";
+		}
+		else if (carre.get_energy_available() > 0.0)
+		{
+			//Energy au sol
+			os << "e";
+		}
+		else if (carre.get_max_seedable() > 10.0)
+		{
+			//Terrain fertile
+			os << "f";
+		}
+		else
+		{
+			//défaut : case vide
+			os << " ";
+		}
+		
+		//os << chara;
+		
+		
+		if(x == width-1)
 			os << std::endl;
-		
-		
 	}
 }

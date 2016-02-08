@@ -3,10 +3,11 @@
 
 #include <cstddef> //NULL
 
-typedef unsigned long int id;
-typedef unsigned long int frame;
-typedef unsigned int coord;
+typedef unsigned long int id; //identifiant d'entité
+typedef unsigned long int frame; //temps de jeu
+typedef unsigned int coord; //coordonnées sur la grille de simulation
 typedef double energy;
+
 
 typedef enum direction
 {
