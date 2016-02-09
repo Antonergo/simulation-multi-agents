@@ -5,7 +5,7 @@
 
 typedef unsigned long int id; //identifiant d'entité
 typedef unsigned long int frame; //temps de jeu
-typedef unsigned int coord; //coordonnées sur la grille de simulation
+typedef int coord; //coordonnées sur la grille de simulation
 typedef double energy;
 
 
@@ -26,10 +26,13 @@ typedef enum direction
 	RIGHT_UP = 9
 } dir;
 
+/*
 typedef enum movementkind
 {
 	FOUR = 4,
 	EIGHT = 8
 } movekind;
+*/
+
 
 #endif

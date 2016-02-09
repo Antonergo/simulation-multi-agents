@@ -29,19 +29,29 @@ class Property
 	public :
 	
 	//constructeurs
-	Property(int equipe, energy banque = 1000, energy interets = 1)
+	Property(int equipe, coord startX, coord startY, energy banque = 1000, energy interets = 1)
 	{
-		this->team 		= equipe;
-		this->reserve 	= banque;
-		this->generate 	= interets;
+		team = equipe;
+		X = startX;
+		Y = startY;
+		reserve	= banque;
+		generate = interets;
+		
+		is_destroyed = false;
 	}
 	
 	~Property() {}
 	//getters simples
 	
-	energy get_life() 		{return life;}
+	int get_team()			{return  team;}
+	
+	coord get_X()			{return X;}
+	coord get_Y()		 	{return Y;}
+	
+	energy get_life()  		{return life;}
 	energy get_life_max()	{return life_max;}
-	energy get_reserve()	{return reserve;}
+	energy get_reserve() 	{return reserve;}
+	
 	
 	//getters complexes
 	
@@ -50,8 +60,8 @@ class Property
 	//modificateurs
 	
 	void produce(); //créer de l'énergie, et peut être un nouvel habitant si les conditions le permettent
-	energy pick_reserve(energy skill);
-	energy receive_attack(energy skill);
+	energy receive_reserve(energy amount);
+	energy receive_attack(energy damage);
 	
 	
 };

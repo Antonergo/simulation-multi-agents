@@ -45,7 +45,8 @@ class Carre
 	
 	bool is_fertile();
 	bool is_planted();
-	energy get_quantity_harvestable();
+	
+	energy get_multiplied_quantity(energy amount); //ex : si on ramasse X plantes, chacun contenant Y graines, on ramasse X*Y graines
 	
 	//setters de génération
 	void set_antity(Antity * a)		{antity = a;}
@@ -56,7 +57,7 @@ class Carre
 	void fertilize(energy amount); //controler (ajout aleatoire)
 	void plant(energy amount); //fermier (peut pas planter 2 fois)
 	
-	energy plunder(energy amount); //le combattant ramasse, mais ça détruit la fertilité de la terre
+	void plunder(energy amount); //le combattant ramasse, mais ça détruit la fertilité de la terre
 	void cut_plants(energy amount); //le fermier coupe les plantes.
 	
 	//modification du temps (en frames)

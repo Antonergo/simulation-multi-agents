@@ -11,8 +11,18 @@ class Fighter : public Antity
 	
 	public :
 	
+	Fighter(coord startX, coord startY, energy vie, energy faim, Property * ville_natale, energy force) : 
+		Antity(startX, startY, vie, faim, ville_natale)
+	{
+		strength = force;
+	}
 	
-	void attack(Antity & victim);
+	~Fighter()
+	{
+		std::cout << "Fighter remove" << std::endl;
+	}
+	
+	void attack(Antity * victim);
 };
 
 

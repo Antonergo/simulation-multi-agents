@@ -19,6 +19,8 @@ class Antity
 	
 	//std::string name;
 	
+	int team;
+	
 	coord X;
 	coord Y;
 	
@@ -36,11 +38,13 @@ class Antity
 	energy carry;
 	energy carry_max;
 	
-	Property* origin;
+	bool deceased;
+	
+	Property * origin;
 	
 	public :
 	//Constructeurs / Destructeurs
-	Antity (energy vie = 200.0, energy faim = 50.0);
+	Antity (coord startX, coord startY, energy vie, energy faim, Property * ville_natale);
 	
 	virtual ~Antity();
 	
@@ -50,15 +54,16 @@ class Antity
 	energy get_life_max();
 	energy get_hunger();
 	energy get_hunger_max();
+	bool is_alive();
 	
 	//modifiers (faim, vie, etc...)
 	
-	energy pick_reserve(energy skill);
-	energy suffer_attack(energy skill);
+	energy pickup_reserve(energy amount); //augmenter carry
+	energy suffer_attack(energy damage); //diminuer life
 	
 	//actions d'agent
 	
-	virtual direction choose_direction();
+	virtual direction choose_direction(); //dépend du job et de l'etat de l'agent
 	
 	//fonctions d'affichage
 	
